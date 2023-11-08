@@ -1,0 +1,18 @@
+name: Comment on every PR
+
+on:
+  pull_request:
+
+
+jobs:
+    comment:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: Call Assistant
+          uses: cmi-dair/openai-assistant@latest
+          with:
+            assistant_id: ${{ secrets.ASSISTANT_ID }}
+            api_key: ${{ secrets.OPENAI_API_KEY }}
+            prompt: "Return just the text 'Lea!'"
+            max_wait: 20
