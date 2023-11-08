@@ -20,4 +20,5 @@ runs:
   args:
     - ${{ inputs.assistant_id }}
     - ${{ inputs.prompt }}
-    - ${{ secrets.openai_api_key }}
+    - ${{ inputs.openai_api_key }}
+    - ${{ inputs.max_wait }}
