@@ -1,7 +1,7 @@
 name: 'Call OpenAI Assistant'
 description: 'Calls an existing OpenAI Assistant'
 inputs:
-  assistant_id:  
+  assistant_id:
     description: 'The ID of the assistant to call.'
     required: true
   prompt:
