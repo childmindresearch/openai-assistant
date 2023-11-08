@@ -1,0 +1,23 @@
+name: 'Call OpenAI Assistant'
+description: 'Calls an existing OpenAI Assistant'
+inputs:
+  assistant_id:  
+    description: 'The ID of the assistant to call.'
+    required: true
+  prompt:
+    description: 'The prompt to use.'
+    required: true
+  openai_api_key:
+    description: 'The OpenAI API key to use.'
+    required: true
+  max_wait:
+    description: 'The maximum time to wait for a response.'
+    required: false
+    default: "60"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.assistant_id }}
+    - ${{ inputs.prompt }}
+    - ${{ secrets.openai_api_key }}
