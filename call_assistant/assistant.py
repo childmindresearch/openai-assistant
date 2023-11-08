@@ -1,5 +1,4 @@
 import pathlib
-import time
 
 import openai
 import pydantic
@@ -36,13 +35,9 @@ def run_prompt(
         file_ids=[file.id for file in openai_files],
     )
     run = client.beta.threads.runs.create(thread.id, assistant.id)
-
-    current_time = time.time()
-    wait_time = 0
-    while run.status == "queued" and wait_time < max_wait:
-        run = client.beta.threads.runs.retrieve(thread.id, assistant.id, run.id)
-        time.sleep(1)
-        wait_time = time.time() - current_time
+    run = client.beta.threads.runs.retrieve(
+        thread.id, assistant.id, run.id, timeout=max_wait
+    )
 
     for file in openai_files:
         client.beta.assistants.files.delete(assistant_id=assistant.id, file_id=file.id)
