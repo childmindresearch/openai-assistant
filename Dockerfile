@@ -9,4 +9,4 @@ RUN pip install poetry && \
     poetry install --only main && \
     rm -rf /root/.cache/pip
 
-CMD ["poetry", "run", "python", "-m", "call_assistant"]
+ENTRYPOINT ["poetry", "run", "python", "-m", "call_assistant"]
