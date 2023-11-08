@@ -10,9 +10,9 @@ jobs:
         steps:
         - uses: actions/checkout@v2
         - name: Call Assistant
-          uses: cmi-dair/openai-assistant@latest
+          uses: cmi-dair/openai-assistant@main
           with:
             assistant_id: ${{ secrets.ASSISTANT_ID }}
-            api_key: ${{ secrets.OPENAI_API_KEY }}
+            openai_api_key: ${{ secrets.OPENAI_API_KEY }}
             prompt: "Return just the text 'Lea!'"
             max_wait: 20
