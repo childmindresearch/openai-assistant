@@ -8,4 +8,4 @@ RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install
 
-ENTRYPOINT ["poetry", "run", "python", "-m", "call_assistant"]
+ENTRYPOINT ["python", "-m", "call_assistant"]
