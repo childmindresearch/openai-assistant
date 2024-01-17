@@ -10,7 +10,7 @@ jobs:
         steps:
         - uses: actions/checkout@v2
         - name: Call Assistant
-          uses: cmi-dair/openai-assistant@main
+          uses: childmindresearch/openai-assistant@main
           with:
             assistant_id: ${{ secrets.ASSISTANT_ID }}
             openai_api_key: ${{ secrets.OPENAI_API_KEY }}
